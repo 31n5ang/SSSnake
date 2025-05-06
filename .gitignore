@@ -1,0 +1,13 @@
+.gradle
+build
+out
+
+# intellij
+.idea
+*.iml
+
+# mac
+.DS_Store
+
+# window
+Thumbs.db

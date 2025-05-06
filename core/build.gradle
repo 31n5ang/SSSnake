@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jline:jline-terminal:3.29.0'
+    implementation 'org.jline:jline-terminal-jansi:3.29.0'
+    implementation 'org.jline:jline-reader:3.29.0'
+
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    mainClass = 'com.sssnake.App'
+}
+
+tasks.named('test') { // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
