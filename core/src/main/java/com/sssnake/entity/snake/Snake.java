@@ -1,0 +1,69 @@
+package com.sssnake.entity.snake;
+
+import java.util.LinkedList;
+
+public class Snake {
+    private Head head;
+    private LinkedList<Tail> tails = new LinkedList<>();
+    private Direction direction;
+    private final MoveStrategy moveStrategy;
+
+    public Snake(Head head, Direction direction) {
+        this.head = head;
+        this.direction = direction;
+        this.moveStrategy = new DefaultMoveStrategy(this);
+    }
+
+    public Head getHead() {
+        return head;
+    }
+
+    public LinkedList<Tail> getTails() {
+        return tails;
+    }
+
+    public void setTails(LinkedList<Tail> tails) {
+        this.tails = tails;
+    }
+
+    public Tail getFirstTail() {
+        if (!tails.isEmpty()) {
+            return tails.getFirst();
+        } else {
+            throw new IllegalStateException("The tail is empty!");
+        }
+    }
+
+    public Tail getLastTail() {
+        if (!tails.isEmpty()) {
+            return tails.getLast();
+        } else {
+            throw new IllegalStateException("The tail is empty!");
+        }
+    }
+
+    public void removeLastTail() {
+        if (!tails.isEmpty()) {
+            tails.removeLast();
+        }
+    }
+
+    public void addFirstTail(int x, int y) {
+        Tail newTail = new Tail(x, y);
+        tails.addFirst(newTail);
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction newDirection) {
+        if (!this.direction.isOpposite(newDirection)) {
+            this.direction = newDirection;
+        }
+    }
+
+    public void move() {
+        moveStrategy.move();
+    }
+}
