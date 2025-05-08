@@ -1,14 +1,19 @@
 package com.sssnake.entity.snake;
 
+import com.sssnake.entity.AnsiColor;
+import com.sssnake.entity.Coordination;
+import com.sssnake.entity.DisplaySymbol;
+
 import java.util.LinkedList;
 
-public class Snake {
+public class Snake extends DisplaySymbol {
     private Head head;
     private LinkedList<Tail> tails = new LinkedList<>();
     private Direction direction;
     private final MoveStrategy moveStrategy;
 
     public Snake(Head head, Direction direction) {
+        super('@', AnsiColor.Blue.font());
         this.head = head;
         this.direction = direction;
         this.moveStrategy = new DefaultMoveStrategy(this);
@@ -53,6 +58,11 @@ public class Snake {
         tails.addFirst(newTail);
     }
 
+    public void addLastTail(int x, int y) {
+        Tail newTail = new Tail(x, y);
+        tails.addLast(newTail);
+    }
+
     public Direction getDirection() {
         return direction;
     }
@@ -65,5 +75,26 @@ public class Snake {
 
     public void move() {
         moveStrategy.move();
+    }
+
+    public void grow() {
+        if (tails.isEmpty()) {
+            int x = head.getX() - direction.dx();
+            int y = head.getY() - direction.dy();
+            addLastTail(x, y);
+        } else {
+            Coordination last = getLastTail().getCoordination();
+            Coordination beforeLast = null;
+            if (tails.size() > 1) {
+                beforeLast = tails.get(tails.size() - 2).getCoordination();
+            } else {
+                beforeLast = head.getCoordination();
+            }
+            int dx = beforeLast.getX() - last.getX();
+            int dy = beforeLast.getY() - last.getY();
+            int nx = last.getX() + dx;
+            int ny = last.getY() + dy;
+            addLastTail(nx, ny);
+        }
     }
 }
