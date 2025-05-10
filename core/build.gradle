@@ -22,7 +22,7 @@ java {
 }
 
 application {
-    mainClass = 'com.sssnake.App'
+    mainClass = 'com.sssnake.Main'
 }
 
 tasks.named('test') { // Use JUnit Platform for unit tests.
