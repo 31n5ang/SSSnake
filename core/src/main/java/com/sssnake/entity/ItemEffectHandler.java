@@ -1,4 +1,4 @@
-package com.sssnake.entity.handler;
+package com.sssnake.entity;
 
 import com.sssnake.entity.item.Item;
 import com.sssnake.entity.snake.Snake;
