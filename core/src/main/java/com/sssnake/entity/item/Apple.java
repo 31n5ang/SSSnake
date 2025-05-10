@@ -1,8 +1,17 @@
 package com.sssnake.entity.item;
 
+import com.sssnake.entity.AnsiColor;
+import com.sssnake.entity.DisplaySymbol;
+
 public class Apple extends Item {
     public Apple(SpawnStrategy spawnStrategy) {
-        super(spawnStrategy);
-        this.setDisplayChar('A');
+        super(
+                spawnStrategy,
+                new DisplaySymbol.Builder()
+                        .symbol('A')
+                        .backgroundColor(AnsiColor.BG_RED)
+                        .textColor(AnsiColor.WHITE)
+                        .build()
+        );
     }
 }
