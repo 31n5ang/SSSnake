@@ -1,19 +1,16 @@
 package com.sssnake.entity.snake;
 
-import com.sssnake.entity.AnsiColor;
 import com.sssnake.entity.Coordination;
-import com.sssnake.entity.DisplaySymbol;
 
 import java.util.LinkedList;
 
-public class Snake extends DisplaySymbol {
-    private Head head;
+public class Snake {
+    private final Head head;
+    private final MoveStrategy moveStrategy;
     private LinkedList<Tail> tails = new LinkedList<>();
     private Direction direction;
-    private final MoveStrategy moveStrategy;
 
     public Snake(Head head, Direction direction) {
-        super('@', AnsiColor.Blue.font());
         this.head = head;
         this.direction = direction;
         this.moveStrategy = new DefaultMoveStrategy(this);
