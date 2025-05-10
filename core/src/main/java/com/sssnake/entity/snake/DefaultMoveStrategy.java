@@ -23,6 +23,8 @@ public class DefaultMoveStrategy implements MoveStrategy {
     }
 
     public void moveTail() {
+        if (snake.getTails().isEmpty()) return;
+
         int headX = snake.getHead().getX();
         int headY = snake.getHead().getY();
 
