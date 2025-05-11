@@ -17,6 +17,7 @@
 - If your snake hits its own tail or walls, the game will be over.
 - The number of apples increases every 10 seconds.
 # Installation guide
+- **You mush have Java 17+ (JRE) installed to play this game.**
 1. Download `release/sssnake-1.0.0.jar` from the repository, or [click here to download](https://github.com/31n5ang/SSSnake/raw/main/release/sssnake-1.0.0.jar)
 2. Open a terminal in the directory where you downloaded the `.jar` file, and run the following command:
 ```
