@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameMap {
+    private final static char BLANK = ' ';
     private final int width;
     private final int height;
     private DisplaySymbol[][] grid;
@@ -16,7 +17,7 @@ public class GameMap {
     public GameMap(int width, int height) {
         this.width = width;
         this.height = height;
-        this.grid = new DisplaySymbol[height][width];
+        grid = new DisplaySymbol[height][width];
     }
 
     public DisplaySymbol[][] getGrid() {
@@ -33,7 +34,7 @@ public class GameMap {
 
     public void clearGrid() {
         for (int y = 0; y < height; y++) {
-            Arrays.fill(grid[y], new DisplaySymbol.Builder().symbol(' ').build());
+            Arrays.fill(grid[y], new DisplaySymbol.Builder().symbol(BLANK).build());
         }
     }
 
