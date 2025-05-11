@@ -25,6 +25,20 @@ application {
     mainClass = 'com.sssnake.Main'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': application.mainClass.get()
+        )
+    }
+
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
 tasks.named('test') { // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
