@@ -46,9 +46,7 @@ public class GameMap {
 
     private void updateItems(List<Item> items) {
         for (Item item : items) {
-            if (item.isDisplayed()) {
-                grid[item.getY()][item.getX()] = item.getDisplaySymbol();
-            }
+            grid[item.getY()][item.getX()] = item.getDisplaySymbol();
         }
     }
 
