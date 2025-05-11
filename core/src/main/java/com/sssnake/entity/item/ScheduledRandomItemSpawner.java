@@ -17,6 +17,7 @@ public class ScheduledRandomItemSpawner implements ItemSpawner {
     public void startSpawning(int width, int height) {
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Item newItem = ItemFactory.createRandomCoordItem(width, height);
+            newItem.setSpawnCoordination();
             itemManager.addItem(newItem);
         }, 0, 10, TimeUnit.SECONDS);
     }
