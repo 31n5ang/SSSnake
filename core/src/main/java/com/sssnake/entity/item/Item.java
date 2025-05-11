@@ -22,11 +22,7 @@ public abstract class Item extends Coordination implements Displayable {
         return displaySymbol;
     }
 
-    public void respawn() {
-        spawn();
-    }
-
-    public void spawn() {
+    public void setSpawnCoordination() {
         Coordination spawnCoord = spawnStrategy.spawn();
         setX(spawnCoord.getX());
         setY(spawnCoord.getY());
