@@ -3,8 +3,8 @@ package com.sssnake.entity.item;
 import com.sssnake.entity.AnsiColor;
 import com.sssnake.entity.DisplaySymbol;
 
-public class Apple extends Item {
-    public Apple(SpawnStrategy spawnStrategy) {
+public class AppleItem extends Item {
+    public AppleItem(SpawnStrategy spawnStrategy) {
         super(
                 spawnStrategy,
                 new DisplaySymbol.Builder()
