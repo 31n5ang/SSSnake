@@ -16,7 +16,7 @@ public class Coordination {
     }
 
     public Coordination getCoordination() {
-        return this;
+        return new Coordination(this.x, this.y);
     }
 
     public int getX() {
